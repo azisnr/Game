@@ -22,9 +22,10 @@ public class PlayerScript : MonoBehaviour
 	
 	void Update ()
 	{				
-		if (GameManager.instance.gamestatus == GameManager.GameStatus.Wait) {
-			_rigidbody2D.gravityScale = 0;
-				
+		if (GameManager.instance.gamestatus == GameManager.GameStatus.Splash) {
+			_rigidbody2D.gravityScale = 0;	
+		}else if(GameManager.instance.gamestatus == GameManager.GameStatus.Wait){
+			_rigidbody2D.gravityScale = 0;	
 		}
 		else {
 			//todo gravity scale change physic of the bird in game

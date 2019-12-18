@@ -61,7 +61,12 @@
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\PusingScript.cs" />
      <Compile Include="Assets\Scripts\SettingScript.cs" />
-     <Compile Include="Assets\Scripts\soundFxScript.cs" />
+     <Compile Include="Assets\Scripts\soundFxFast.cs" />
+     <Compile Include="Assets\Scripts\soundFxFreeze.cs" />
+     <Compile Include="Assets\Scripts\soundFxJump.cs" />
+     <Compile Include="Assets\Scripts\soundFxPoint.cs" />
+     <Compile Include="Assets\Scripts\soundFxPusing.cs" />
+     <Compile Include="Assets\Scripts\soundFxYeah.cs" />
      <Compile Include="Assets\Scripts\TileScript.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">

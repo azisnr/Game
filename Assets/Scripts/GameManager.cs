@@ -17,24 +17,26 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
     public GameObject startPanel;
+    public GameObject splashPanel;
 
-	public bool isFreze,flash;
-	public float frezeTime, flashTime;
+	public bool isFreze,flash, isSplash;
+	public float frezeTime, flashTime, splashTime;
 
 	public bool pusing;
 
     // Use this for initialization
     void Start ()
     {
-		// text = GetComponent<Text> ();
 	    instance = this;
-        gamestatus = GameStatus.Wait;
+        // gamestatus = GameStatus.Splash;
         score = 0;
 		highscore = PlayerPrefs.GetInt ("highscore", highscore);
 		isFreze = false;
 		flash = false;
+		isSplash = true;
 		frezeTime = 3;
 		flashTime = 5;
+		splashTime = 1;
 	}
 
 	public void NambahScore(){
@@ -53,6 +55,14 @@ public class GameManager : MonoBehaviour
 			}
 		}
 
+		if(gamestatus == GameStatus.Splash){
+			splashTime -= Time.deltaTime;
+			if(splashTime  <= 0){
+				splashPanel.SetActive(false);
+				gamestatus = GameStatus.Wait;
+			}
+		}
+
 		if(flash){
 			flashTime -= Time.deltaTime;
 			if(flashTime  <= 0){
@@ -68,6 +78,9 @@ public class GameManager : MonoBehaviour
 		}
 
 		switch (gamestatus) {
+		case GameStatus.Splash:
+				splashPanel.SetActive(true);
+				break;
 		case GameStatus.Play:
 				startPanel.SetActive(false);
         		scoreText.text = score + " Coin";
@@ -77,6 +90,7 @@ public class GameManager : MonoBehaviour
                 scoreTextGameOver.text = "Your Score : " + score + " Coin";
 			    break;
 		case GameStatus.Wait:
+				gameOverPanel.SetActive(false);
                 startPanel.SetActive(true);
 			    break;
 		}
@@ -85,6 +99,7 @@ public class GameManager : MonoBehaviour
 		
 	public enum GameStatus
 	{
+		Splash,
 		Wait,
 		Play,
 		GameOver		
