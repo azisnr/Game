@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
 	private Rigidbody2D _rigidbody2D;
 	public Vector3 playerPos;
 	public float posY;	
-	public KeyCode atas,kanan, kiri;
+	public KeyCode atas,kanan, kiri, space;
 	public AudioSource jump, die, back;
 
 	
@@ -42,37 +42,27 @@ public class PlayerScript : MonoBehaviour
             if (GameManager.instance.gamestatus == GameManager.GameStatus.Play)
             {
                 Jump();
-            }if (GameManager.instance.gamestatus == GameManager.GameStatus.GameOver){
-				SceneManager.LoadScene("EmotJump");
-        	} 
+            }
         }
 
-		if (Input.GetKeyDown(kanan)) {
-            if (GameManager.instance.gamestatus == GameManager.GameStatus.Wait)
-            {
-                GameManager.instance.gamestatus = GameManager.GameStatus.Play;
-            }
+		if (Input.GetKeyDown(space)) {
+			if (GameManager.instance.gamestatus == GameManager.GameStatus.GameOver){
+				SceneManager.LoadScene("EmotJump");
+        	} 
+		}
 
+		if (Input.GetKeyDown(kanan)) {
             if (GameManager.instance.gamestatus == GameManager.GameStatus.Play)
             {
                 keKanan();
-            }if (GameManager.instance.gamestatus == GameManager.GameStatus.GameOver){
-				SceneManager.LoadScene("EmotJump");
-        	} 
+            }
         }
 
 		if (Input.GetKeyDown(kiri)) {
-            if (GameManager.instance.gamestatus == GameManager.GameStatus.Wait)
-            {
-                GameManager.instance.gamestatus = GameManager.GameStatus.Play;
-            }
-
             if (GameManager.instance.gamestatus == GameManager.GameStatus.Play)
             {
                 keKiri();
-            }if (GameManager.instance.gamestatus == GameManager.GameStatus.GameOver){
-				SceneManager.LoadScene("EmotJump");
-        	} 
+            }
         }
 	}
 

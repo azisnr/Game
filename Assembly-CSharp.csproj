@@ -53,12 +53,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\backsoundScript.cs" />
      <Compile Include="Assets\Scripts\CoinScript.cs" />
      <Compile Include="Assets\Scripts\FlashScript.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\ObatScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\PusingScript.cs" />
+     <Compile Include="Assets\Scripts\SettingScript.cs" />
+     <Compile Include="Assets\Scripts\soundFxScript.cs" />
      <Compile Include="Assets\Scripts\TileScript.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
